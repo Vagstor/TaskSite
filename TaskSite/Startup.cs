@@ -13,6 +13,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using TaskSite.Services;
+using DbMigrator;
 
 namespace TaskSite
 {
@@ -66,9 +67,11 @@ namespace TaskSite
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-            //MigrationRunner migrationRunner = new MigrationRunner();
+
+            MigrationRunner migrationRunner = new MigrationRunner();
             var connStr = Configuration["ConnectionStrings:DefaultConnection"];
-            //migrationRunner.MigrationConnection(connStr);
+            migrationRunner.MigrationConnection(connStr);
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 

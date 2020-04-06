@@ -17,6 +17,8 @@ namespace TaskSite.Models
 
         [Required]
         public string Login { get; set; }
+        [MaxLength(50)]
+        [Required]
         public string Credentials { get; set; }
         [Range(1, 100, ErrorMessage = "Укажите возраст от одного до ста")]
         public int? Age { get; set; }

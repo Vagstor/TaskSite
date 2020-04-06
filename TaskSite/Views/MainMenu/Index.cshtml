@@ -4,7 +4,7 @@
     ViewData["Title"] = "MainMenu";
 }
 
-<form asp-action="index" method="post">
+<form asp-action="EditUser" method="post">
     <label asp-for="FavFood">Любимая еда:</label>
     <input type="text" asp-for="FavFood" placeholder="@Model.FavFood">
     <span asp-validation-for="FavFood"></span>
@@ -21,5 +21,5 @@
     <input type="text" asp-for="Pet" placeholder="@Model.Pet">
     <span asp-validation-for="Pet"></span>
     <br>
-    <button type="submit" class="btn btn-primary" asp-controller="MainMenu" asp-action="Index">Изменить</button>
+    <button type="submit" class="btn btn-primary" asp-controller="MainMenu" asp-action="EditUser">Изменить</button>
 </form>

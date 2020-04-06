@@ -18,13 +18,15 @@ namespace TaskSite.Controllers
         }
 
         [HttpPost]
-        public IActionResult Index(UserModel user)
+        public IActionResult EditUser(UserModel user)
         {
             if (!ModelState.IsValid)
             {
-                return View();
+                return View("Index", user);
             }
-            else return View();
+            user.Login = HttpContext.User.Identity.Name;
+            _service.EditUserInfo(user);
+            return RedirectToAction("Index", "MainMenu");
         }
 
         [HttpGet]
@@ -36,13 +38,7 @@ namespace TaskSite.Controllers
             }
 
             User currentUser = _service.GetUserByLogin(HttpContext.User.Identity.Name);
-            UserModel userModel = new UserModel
-            {
-                Age = currentUser.Age,
-                FavFood = currentUser.Favfood,
-                Credentials = currentUser.Credentials,
-                Pet = currentUser.Pet
-            };
+            UserModel userModel = _service.ConvertDBToModel(currentUser);
             return View(userModel);
         }
     }

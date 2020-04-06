@@ -27,5 +27,29 @@ namespace TaskSite.Services
                     select u;
             return q.FirstOrDefault();
         }
+
+        public void EditUserInfo(UserModel user)
+        {
+            _db.Users.Where(p => p.Login == user.Login)
+            .Set(p => p.Credentials, user.Credentials)
+            .Set(p => p.Age, user.Age)
+            .Set(p => p.Favfood, user.FavFood)
+            .Set(p => p.Pet, user.Pet)
+            .Update();
+        }
+
+        public UserModel ConvertDBToModel(User user)
+        {
+            UserModel userModel = new UserModel
+            {
+                Login = user.Login,
+                Password = user.Password,
+                Age = user.Age,
+                FavFood = user.Favfood,
+                Credentials = user.Credentials,
+                Pet = user.Pet
+            };
+            return userModel;
+        }
     }
 }
