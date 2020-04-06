@@ -1,0 +1,25 @@
+﻿@model UserModel
+
+@{
+    ViewData["Title"] = "MainMenu";
+}
+
+<form asp-action="index" method="post">
+    <label asp-for="FavFood">Любимая еда:</label>
+    <input type="text" asp-for="FavFood" placeholder="@Model.FavFood">
+    <span asp-validation-for="FavFood"></span>
+    <br>
+    <label asp-for="Credentials">ФИО: </label>
+    <input type="text" asp-for="Credentials" placeholder="@Model.Credentials">
+    <span asp-validation-for="Credentials"></span>
+    <br>
+    <label asp-for="Age">Возраст: </label>
+    <input type="text" asp-for="Age" placeholder="@Model.Age">
+    <span asp-validation-for="Age"></span>
+    <br>
+    <label asp-for="Pet">Любимый питомец: </label>
+    <input type="text" asp-for="Pet" placeholder="@Model.Pet">
+    <span asp-validation-for="Pet"></span>
+    <br>
+    <button type="submit" class="btn btn-primary" asp-controller="MainMenu" asp-action="Index">Изменить</button>
+</form>
