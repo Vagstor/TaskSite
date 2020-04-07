@@ -1,25 +1,34 @@
 ﻿@model UserModel
-
+    <link href="~/css/MainMenuStyle.css" rel="stylesheet" type="text/css" />
 @{
     ViewData["Title"] = "MainMenu";
 }
-
+<div class="userinfobox">
 <form asp-action="EditUser" method="post">
-    <label asp-for="FavFood">Любимая еда:</label>
-    <input type="text" asp-for="FavFood" placeholder="@Model.FavFood">
+    <label asp-for="FavFood">Любимая еда: @ViewBag.FavFood</label>
+    <div class="input-group-text">
+    <input type="text" asp-for="FavFood" placeholder="">
+    </div>
     <span asp-validation-for="FavFood"></span>
     <br>
-    <label asp-for="Credentials">ФИО: </label>
-    <input type="text" asp-for="Credentials" placeholder="@Model.Credentials">
+    <label asp-for="Credentials">ФИО: @ViewBag.Credentials</label>
+    <div class="input-group-text">
+    <input type="text" asp-for="Credentials" placeholder="">
+    </div>
     <span asp-validation-for="Credentials"></span>
     <br>
-    <label asp-for="Age">Возраст: </label>
-    <input type="text" asp-for="Age" placeholder="@Model.Age">
+    <label asp-for="Age">Возраст: @ViewBag.Age</label>
+    <div class="input-group-text">
+    <input type="text" asp-for="Age" placeholder="">
+    </div>
     <span asp-validation-for="Age"></span>
     <br>
-    <label asp-for="Pet">Любимый питомец: </label>
-    <input type="text" asp-for="Pet" placeholder="@Model.Pet">
+    <label asp-for="Pet">Любимый питомец: @ViewBag.Pet</label>
+    <div class="input-group-text">
+    <input type="text" asp-for="Pet" placeholder="">
+    </div>
     <span asp-validation-for="Pet"></span>
     <br>
     <button type="submit" class="btn btn-primary" asp-controller="MainMenu" asp-action="EditUser">Изменить</button>
 </form>
+</div>

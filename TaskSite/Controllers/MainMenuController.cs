@@ -38,8 +38,13 @@ namespace TaskSite.Controllers
             }
 
             User currentUser = _service.GetUserByLogin(HttpContext.User.Identity.Name);
-            UserModel userModel = _service.ConvertDBToModel(currentUser);
-            return View(userModel);
+            ViewBag.Credentials = currentUser.Credentials;
+            ViewBag.Pet = currentUser.Pet;
+            ViewBag.Age = currentUser.Age;
+            ViewBag.Favfood = currentUser.Favfood;
+            return View();
+            //UserModel userModel = _service.ConvertDBToModel(currentUser);
+            //return View(userModel);
         }
     }
 }
