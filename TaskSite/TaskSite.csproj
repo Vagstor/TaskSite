@@ -5,6 +5,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="DataModels\TaskSiteDB.generated.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="DataModels\TaskSiteDB.tt" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="linq2db.PostgreSQL" Version="3.0.0-preview.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.0.0">
@@ -26,18 +34,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="DataModels\TaskSiteDB.generated.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>TaskSiteDB.tt</DependentUpon>
-    </Compile>
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="DataModels\TaskSiteDB.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>TaskSiteDB.generated.cs</LastGenOutput>
-    </None>
+    <Folder Include="DataModels\" />
   </ItemGroup>
 
 </Project>
