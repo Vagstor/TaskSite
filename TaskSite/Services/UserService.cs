@@ -28,9 +28,9 @@ namespace TaskSite.Services
             return q.FirstOrDefault();
         }
 
-        public void EditUserInfo(UserModel user)
+        public void EditUserInfo(UserModel user, string login)
         {
-            _db.Users.Where(p => p.Login == user.Login)
+            _db.Users.Where(p => p.Login == login)
             .Set(p => p.Credentials, user.Credentials)
             .Set(p => p.Age, user.Age)
             .Set(p => p.Favfood, user.FavFood)
@@ -42,8 +42,6 @@ namespace TaskSite.Services
         {
             UserModel userModel = new UserModel
             {
-                Login = user.Login,
-                Password = user.Password,
                 Age = user.Age,
                 FavFood = user.Favfood,
                 Credentials = user.Credentials,

@@ -20,12 +20,12 @@ namespace TaskSite.Controllers
         [HttpPost]
         public IActionResult EditUser(UserModel user)
         {
+            string userLogin = new string (HttpContext.User.Identity.Name);
             if (!ModelState.IsValid)
             {
                 return View("Index", user);
             }
-            user.Login = HttpContext.User.Identity.Name;
-            _service.EditUserInfo(user);
+            _service.EditUserInfo(user, userLogin);
             return RedirectToAction("Index", "MainMenu");
         }
 
