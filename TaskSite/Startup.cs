@@ -36,6 +36,15 @@ namespace TaskSite
                 ConnString = Configuration.GetConnectionString("DefaultConnection")
             };
 
+            services.Configure<CookiePolicyOptions>(options =>
+            {
+                // This lambda determines whether user consent for non-essential 
+                // cookies is needed for a given request.
+                options.CheckConsentNeeded = context => true;
+                // requires using Microsoft.AspNetCore.Http;
+                options.MinimumSameSitePolicy = SameSiteMode.None;
+            });
+
             services.AddScoped<MainDb>();
             services.AddScoped<SiteService>();
             services.AddScoped<UserService>();
