@@ -18,7 +18,7 @@ namespace DataModels
 	/// <summary>
 	/// Database       : tasksite
 	/// Data Source    : tcp://localhost:5432
-	/// Server Version : 9.4.26
+	/// Server Version : 10.12
 	/// </summary>
 	public partial class MainDb : LinqToDB.Data.DataConnection
 	{

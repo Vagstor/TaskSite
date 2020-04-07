@@ -8,15 +8,15 @@ namespace TaskSite.Models
 {
     public class UserModel
     {
-        [Required]
-        public string Email { get; set; }
+        //[Required]
+        //public string Email { get; set; }
 
-        [Required]
-        [DataType(DataType.Password)]
-        public string Password { get; set; }
+        //[Required]
+        //[DataType(DataType.Password)]
+        //public string Password { get; set; }
 
-        [Required]
-        public string Login { get; set; }
+        //[Required]
+        //public string Login { get; set; }
         [MaxLength(50)]
         [Required]
         public string Credentials { get; set; }
