@@ -35,3 +35,39 @@
         <button type="submit" class="btn btn-primary" asp-controller="MainMenu" asp-action="DeleteUserInfo">Удалить данные</button>
     </form>
 </div>
+<h1>Корзина</h1>
+<table class="table table-striped">
+    <tr>
+        <td>Товар</td>
+        <td>Цена</td>
+        <td>Ссылка</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Салфетки влажные Zewa 100шт.</td>
+        <td>99.9</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Салфетки влажные Zewa 100шт.</td>
+        <td>99.9</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Салфетки влажные Zewa 100шт.</td>
+        <td>99.9</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Салфетки влажные Zewa 100шт.</td>
+        <td>99.9</td>
+        <td></td>
+    </tr>
+</table>
+
+<div class="checkBox">
+    <p><input type="checkbox" name="consentCheckbox">Я согласен с <a asp-area="" asp-controller="Welcome" asp-action="Privacy">политикой конфеденциальности</a> данного сайта</p>
+    <form>
+        <button type="submit" class="btn btn-primary" asp-controller="Welcome" asp-action="Login">Оформить заказ</button>
+    </form>
+    </div>

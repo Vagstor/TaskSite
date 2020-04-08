@@ -26,6 +26,12 @@ namespace TaskSite.Controllers
             return View();
         }
 
+        [HttpGet]
+        public IActionResult Privacy()
+        {
+            return View();
+        }
+
         [HttpPost]
         public IActionResult Register(RegisterModel currentUser)
         {

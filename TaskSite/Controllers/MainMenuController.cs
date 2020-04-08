@@ -39,19 +39,28 @@ namespace TaskSite.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            if (!ModelState.IsValid)
+            if (HttpContext.User.Identity.IsAuthenticated)
             {
-                return View();
+                if (!ModelState.IsValid)
+                {
+                    return View();
+                }
+                else
+                {
+                    User currentUser = _service.GetUserByLogin(HttpContext.User.Identity.Name);
+                    ViewBag.Credentials = currentUser.Credentials;
+                    ViewBag.Pet = currentUser.Pet;
+                    ViewBag.Age = currentUser.Age;
+                    ViewBag.Favfood = currentUser.Favfood;
+                    return View();
+                }
+                //UserModel userModel = _service.ConvertDBToModel(currentUser);
+                //return View(userModel);
             }
-
-            User currentUser = _service.GetUserByLogin(HttpContext.User.Identity.Name);
-            ViewBag.Credentials = currentUser.Credentials;
-            ViewBag.Pet = currentUser.Pet;
-            ViewBag.Age = currentUser.Age;
-            ViewBag.Favfood = currentUser.Favfood;
-            return View();
-            //UserModel userModel = _service.ConvertDBToModel(currentUser);
-            //return View(userModel);
+            else
+            { 
+                return RedirectToAction("Login", "Welcome"); 
+            }
         }
     }
 }
