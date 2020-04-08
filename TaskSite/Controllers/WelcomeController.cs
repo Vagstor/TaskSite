@@ -15,10 +15,10 @@ namespace TaskSite.Controllers
 {
     public class WelcomeController : Controller
     {
-        private SiteService _service;
-        public WelcomeController(SiteService service)
+        private SiteService _siteservice;
+        public WelcomeController(SiteService siteservice)
         {
-            _service = service;
+            _siteservice = siteservice;
         }
         [HttpGet]
         public IActionResult Register()
@@ -37,14 +37,14 @@ namespace TaskSite.Controllers
 
             else
 
-            if (!_service.CheckIfLoginVacant(currentUser.Login))
+            if (!_siteservice.CheckIfLoginVacant(currentUser.Login))
             {
                 ModelState.AddModelError("Login", "Такой логин уже существует");
             }
 
             else
 
-            if (!_service.CheckIfEmailVacant(currentUser.Email))
+            if (!_siteservice.CheckIfEmailVacant(currentUser.Email))
             {
                 ModelState.AddModelError("Email", "Такой Email уже существует");
             }
@@ -52,7 +52,7 @@ namespace TaskSite.Controllers
             else
 
             {
-                _service.AddNewUser(currentUser.Login, currentUser.Password, currentUser.Email);
+                _siteservice.AddNewUser(currentUser.Login, currentUser.Password, currentUser.Email);
                 return RedirectToAction("Login", "Welcome");
             }
 
@@ -61,13 +61,22 @@ namespace TaskSite.Controllers
 
         public IActionResult Logout()
         {
-            var login = HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             return RedirectToAction("Login", "Welcome");
         }
+
+        public IActionResult DeleteAccount()
+        {
+            HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            _siteservice.DeleteUserAccount(HttpContext.User.Identity.Name);
+            return RedirectToAction("Login", "Welcome");
+        }
+
+
         [HttpPost]
         public IActionResult Login(LoginModel currentUser)
         {
-            var user = _service.GetByLogin(currentUser.Login);
+            var user = _siteservice.GetByLogin(currentUser.Login);
 
             if (!ModelState.IsValid)
             {

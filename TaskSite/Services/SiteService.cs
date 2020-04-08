@@ -65,6 +65,12 @@ namespace TaskSite.Services
                 return false;
         }
 
+        public void DeleteUserAccount(string login)
+        {
+            _db.Users.Where(p => p.Login == login)
+            .Delete();
+        }
+
         public bool CheckIfLoginVacant(string login)
         {
             var q = from u in _db.Users

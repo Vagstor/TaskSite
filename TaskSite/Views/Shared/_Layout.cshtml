@@ -20,7 +20,8 @@
                     <ul class="navbar-nav flex-grow-1">
                         @if (@User.Identity.Name != null)
                         {
-                            <div class="userStats">Добро пожаловать, @User.Identity.Name! <a asp-action="Logout" asp-controller="Welcome">Выйти</a></div>
+                            <div class="userStats">Добро пожаловать, @User.Identity.Name! <a asp-action="Logout" asp-controller="Welcome">[Выйти]   </a></div>
+                            <a asp-action="DeleteAccount" asp-controller="Welcome">[Удалить текущего пользователя]</a>
                         }
                     </ul>
                 </div>

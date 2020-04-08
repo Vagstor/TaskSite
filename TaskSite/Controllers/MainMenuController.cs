@@ -18,7 +18,7 @@ namespace TaskSite.Controllers
         }
 
         [HttpPost]
-        public IActionResult EditUser(UserModel user)
+        public IActionResult EditUserInfo(UserModel user)
         {
             string userLogin = new string (HttpContext.User.Identity.Name);
             if (!ModelState.IsValid)
@@ -26,6 +26,13 @@ namespace TaskSite.Controllers
                 return View("Index", user);
             }
             _service.EditUserInfo(user, userLogin);
+            return RedirectToAction("Index", "MainMenu");
+        }
+        [HttpPost]
+        public IActionResult DeleteUserInfo()
+        {
+            string userLogin = new string(HttpContext.User.Identity.Name);
+            _service.DeleteUserInfo(userLogin);
             return RedirectToAction("Index", "MainMenu");
         }
 

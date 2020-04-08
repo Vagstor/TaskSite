@@ -4,31 +4,34 @@
     ViewData["Title"] = "MainMenu";
 }
 <div class="userinfobox">
-<form asp-action="EditUser" method="post">
-    <label asp-for="FavFood">Любимая еда: @ViewBag.FavFood</label>
-    <div class="input-group-text">
-    <input type="text" asp-for="FavFood" placeholder="">
-    </div>
-    <span asp-validation-for="FavFood"></span>
-    <br>
-    <label asp-for="Credentials">ФИО: @ViewBag.Credentials</label>
-    <div class="input-group-text">
-    <input type="text" asp-for="Credentials" placeholder="">
-    </div>
-    <span asp-validation-for="Credentials"></span>
-    <br>
-    <label asp-for="Age">Возраст: @ViewBag.Age</label>
-    <div class="input-group-text">
-    <input type="text" asp-for="Age" placeholder="">
-    </div>
-    <span asp-validation-for="Age"></span>
-    <br>
-    <label asp-for="Pet">Любимый питомец: @ViewBag.Pet</label>
-    <div class="input-group-text">
-    <input type="text" asp-for="Pet" placeholder="">
-    </div>
-    <span asp-validation-for="Pet"></span>
-    <br>
-    <button type="submit" class="btn btn-primary" asp-controller="MainMenu" asp-action="EditUser">Изменить</button>
-</form>
+    <form asp-action="EditUserInfo" method="post">
+        <label asp-for="FavFood">Любимая еда: @ViewBag.FavFood</label>
+        <div class="input-group-text">
+            <input type="text" asp-for="FavFood" placeholder="">
+        </div>
+        <span asp-validation-for="FavFood"></span>
+        <br>
+        <label asp-for="Credentials">ФИО: @ViewBag.Credentials</label>
+        <div class="input-group-text">
+            <input type="text" asp-for="Credentials" placeholder="">
+        </div>
+        <span asp-validation-for="Credentials"></span>
+        <br>
+        <label asp-for="Age">Возраст: @ViewBag.Age</label>
+        <div class="input-group-text">
+            <input type="text" asp-for="Age" placeholder="">
+        </div>
+        <span asp-validation-for="Age"></span>
+        <br>
+        <label asp-for="Pet">Любимый питомец: @ViewBag.Pet</label>
+        <div class="input-group-text">
+            <input type="text" asp-for="Pet" placeholder="">
+        </div>
+        <span asp-validation-for="Pet"></span>
+        <br>
+        <button type="submit" class="btn btn-primary" asp-controller="MainMenu" asp-action="EditUserInfo">Изменить</button>
+    </form>
+    <form asp-action="DeleteUserInfo" method="post">
+        <button type="submit" class="btn btn-primary" asp-controller="MainMenu" asp-action="DeleteUserInfo">Удалить данные</button>
+    </form>
 </div>

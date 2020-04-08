@@ -20,8 +20,8 @@ namespace TaskSite.Models
         [MaxLength(50)]
         [Required]
         public string Credentials { get; set; }
-        [Range(1, 100, ErrorMessage = "Укажите возраст от одного до ста")]
-        public int? Age { get; set; }
+        [RegularExpression(@"^[0-9]+$", ErrorMessage = "Используйте арабские цифры")]
+        public string Age { get; set; }
         [Required]
         public string FavFood { get; set; }
         [Required]

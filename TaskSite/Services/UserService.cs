@@ -49,5 +49,16 @@ namespace TaskSite.Services
             };
             return userModel;
         }
+
+        public void DeleteUserInfo(string login)
+        {
+            
+            _db.Users.Where(p => p.Login == login)
+            .Set(p => p.Credentials, String.Empty)
+            .Set(p => p.Age, String.Empty)
+            .Set(p => p.Favfood, String.Empty)
+            .Set(p => p.Pet, String.Empty)
+            .Update();
+        }
     }
 }
