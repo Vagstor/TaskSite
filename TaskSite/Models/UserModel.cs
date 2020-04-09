@@ -18,13 +18,15 @@ namespace TaskSite.Models
         //[Required]
         //public string Login { get; set; }
         [MaxLength(50)]
-        [Required]
+        [RegularExpression(@"^[A-ZА-Я][a-zа-я]+\s[A-ZА-Я][a-zа-я]+\s[A-ZА-Я][a-zа-я]+$", ErrorMessage = "Поле не должно содержать цифры и состоять из трех слов")]
         public string Credentials { get; set; }
-        [RegularExpression(@"^[0-9]+$", ErrorMessage = "Используйте арабские цифры")]
+        [RegularExpression(@"^[0-9][0-9]$", ErrorMessage = "Поле должно сожержать арабские цифры от 0 до 99")]
         public string Age { get; set; }
-        [Required]
+
+        [RegularExpression(@"^[a-zA-Zа-яА-Я]+$", ErrorMessage = "Поле не должно содержать цифры")]
         public string FavFood { get; set; }
-        [Required]
+
+        [RegularExpression(@"^[a-zA-Zа-яА-Я]+$", ErrorMessage = "Поле не должно содержать цифры")]
         public string Pet { get; set; }
     }
 }
