@@ -7,6 +7,8 @@
 https://drive.google.com/file/d/14SDtIYtpdS98fCcc0j3ki8urj-H7vRV_/view?usp=sharing
 https://drive.google.com/open?id=1X6vq71-TVjZxkmAGuwRAHhTaQTeRnavm
 
+Запуск приложения производится в Visual Studio по нажатию F5
+
 (Если изменение строки подключения всё же требуется, следует обратиться к файлам TaskSiteDB.tt в папке DataModels:
 
 LoadPostgreSQLMetadata("localhost", "5432", "tasksite", "postgres", "123");
@@ -15,5 +17,3 @@ LoadPostgreSQLMetadata("localhost", "5432", "tasksite", "postgres", "123");
 И appsettings.json в корневом каталоге
 
 "DefaultConnection": "Server=localhost;Port=5432;Database=tasksite;UserId=postgres;Password=123;")
-
-Запуск приложения производится в Visual Studio по нажатию F5
