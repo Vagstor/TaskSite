@@ -18,7 +18,7 @@ namespace DataModels
 	/// <summary>
 	/// Database       : tasksite
 	/// Data Source    : tcp://localhost:5432
-	/// Server Version : 9.4.26
+	/// Server Version : 13.2
 	/// </summary>
 	public partial class MainDb : LinqToDB.Data.DataConnection
 	{
@@ -55,7 +55,7 @@ namespace DataModels
 		[Column("password"),       Nullable         ] public string Password    { get; set; } // character varying
 		[Column("favfood"),        Nullable         ] public string Favfood     { get; set; } // character varying
 		[Column("pet"),            Nullable         ] public string Pet         { get; set; } // character varying
-		[Column("age"),            Nullable         ] public string Age         { get; set; } // character varying
+		[Column("age"),            Nullable         ] public string Age         { get; set; } // integer
 	}
 
 	public static partial class TableExtensions

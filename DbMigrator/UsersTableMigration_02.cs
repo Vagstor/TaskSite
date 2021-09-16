@@ -20,7 +20,7 @@ CREATE TABLE tasksite.users
   password character varying,
   favfood character varying,
   pet character varying,
-  age integer,
+  age varying,
   CONSTRAINT users_pkey PRIMARY KEY (id)
 )
 WITH (

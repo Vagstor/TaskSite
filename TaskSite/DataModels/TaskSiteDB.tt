@@ -6,6 +6,6 @@
 	NamespaceName = "DataModels";
 	DataContextName = "MainDb";
 	GetSchemaOptions.IncludedSchemas = new[] { "tasksite" };
-	LoadPostgreSQLMetadata("localhost", "5432", "tasksite", "postgres", "123");
+	LoadPostgreSQLMetadata("localhost", "5432", "tasksite", "postgres", "admin");
 	GenerateModel();
 #>
